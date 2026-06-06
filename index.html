@@ -1,14 +1,45 @@
-<script>
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/unsccdc-portal/"> <!-- 💎 THE MASTER PATH -->
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="UNSCCDC National Hub.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="unsccdc_global">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>UNSCCDC National Hub</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* 🎨 IMPERIAL LOADING SCREEN */
+    body { background-color: #000000; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .loader { border: 5px solid #111; border-top: 5px solid #D4AF37; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="loader"></div> <!-- 💎 User sees this while engine loads -->
+
+  <script src="flutter.js" defer></script>
+  <script>
     window.addEventListener('load', function(ev) {
-      // 💎 THE SOVEREIGN FAST-START LOGIC 💎
+      // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine({
-            // 🚀 Force HTML renderer for instant loading in any network
-            useHtml: true 
+            useHtml: true // 🚀 FASTEST RENDERER FOR UGANDAN NETWORKS
           }).then(function(appRunner) {
             appRunner.runApp();
           });
@@ -16,3 +47,5 @@
       });
     });
   </script>
+</body>
+</html>
