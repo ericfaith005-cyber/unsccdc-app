@@ -29,18 +29,23 @@
 <body>
   <div class="loader"></div> <!-- 💎 User sees this while engine loads -->
 
-  <script src="flutter.js" defer></script>
+ <script src="flutter.js" defer></script>
   <script>
+    // 🛡️ THE GOLIATH SELF-CLEANING ENGINE
     window.addEventListener('load', function(ev) {
-      // Download main.dart.js
+      // 1. Kill any old 'Ghosts' (Service Workers) from last night
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+
+      // 2. Start the Hub
       _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine({
-            useHtml: true // 🚀 FASTEST RENDERER FOR UGANDAN NETWORKS
-          }).then(function(appRunner) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
             appRunner.runApp();
           });
         }
