@@ -96805,8 +96805,8 @@ j=B.aA(d)
 o.ab(new B.ayh(o))
 o.Si()
 if(o.p3!=null){o.mO("OFFLINE MODE: Last Known Data Restored \ud83d\udcf4",!1)
-o.ab(new B.ayi(o))}else o.mO("OFFLINE: Connection Required for First Login",!0)
-B.pj("CONNECTION LOG: "+B.k(j))
+o.ab(new B.ayi(o))}else o.mO("OFFLINE: Brain is currently sleeping.",!0)
+B.pj("CONNECTION ERROR: "+B.k(j))
 s=5
 break
 case 2:s=1
